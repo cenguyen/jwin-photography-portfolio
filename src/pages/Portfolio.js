@@ -6,14 +6,30 @@ import Image3 from '../img/portfolio/3.png';
 import Image4 from '../img/portfolio/4.png';
 // import Link
 import { Link } from 'react-router-dom';
+// import motion
+import { motion } from 'framer-motion';
+// import transtion
+import { transition1 } from '../transitions';
 
 const Portfolio = () => {
   return (
-    <section className="section">
+    <motion.section
+      initial={{ opacity: 0, y: '100%' }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: '100%' }}
+      transition={transition1}
+      className="section"
+    >
       <div className="container mx-auto h-full relative">
         <div className="flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8">
           {/* text */}
-          <div className="flex flex-col lg:items-start">
+          <motion.div
+            initial={{ opacity: 0, y: '-80%' }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: '-80%' }}
+            transition={transition1}
+            className="flex flex-col lg:items-start"
+          >
             <h1 className="h1">Portfolio</h1>
             <p className="mb-12 max-w-sm">
             Howl uncontrollably for no reason sleep over your phone and make cute snoring noises funny little cat chirrup noise shaking upright tail when standing next to you or more napping, more napping all the napping is exhausting make plans to dominate world and then take a nap.
@@ -24,7 +40,7 @@ const Portfolio = () => {
             <Link to={'/contact'} className="btn mb-[30px] mx-auto lg:mx-0">
               Hire Me
             </Link>
-          </div>
+          </motion.div>
           {/* image grid */}
           <div className="grid grid-cols-2 lg:gap-2">
           {/* images */}
@@ -43,7 +59,7 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 };
 
